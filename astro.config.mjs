@@ -17,12 +17,4 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
-  vite: {
-    define: {
-      __DATE__: `'${new Date().toISOString()}'`,
-    },
-  },
-  experimental: {
-    viewTransitions: true,
-  },
 });
