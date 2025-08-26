@@ -1,0 +1,865 @@
+---
+// Homepage for Ramon's Plumbing
+// Based on Diesel Dudes design system
+export const prerender = true;
+
+const pageTitle = "Emergency Plumber Temecula | 24/7 Plumbing Services | Ramon's Plumbing";
+const pageDescription = "24/7 emergency plumber serving Temecula, Palm Springs & Riverside County. Licensed plumbing services, water heater repair, leak detection. Call (951) 604-5803 now!";
+---
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="emergency plumber Temecula, 24 hour plumber, plumber near me, water heater repair, leak detection, plumbing services Riverside County" />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Ramon's Plumbing" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ramonsplumbing.com" />
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://ramonsplumbing.com",
+      "name": "Ramon's Plumbing",
+      "image": "https://ramonsplumbing.com/images/ramons-plumbing-logo.jpg",
+      "telephone": "(951) 604-5803",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "CA",
+        "addressCountry": "US"
+      },
+      "areaServed": ["Temecula", "Palm Springs", "Murrieta", "Menifee", "Riverside County"],
+      "serviceType": "Plumbing Services",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Plumbing Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Emergency Plumbing",
+              "description": "24/7 emergency plumbing services"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Leak Detection",
+              "description": "Professional leak detection and repair"
+            }
+          }
+        ]
+      },
+      "openingHours": "Mo-Su 00:00-23:59",
+      "priceRange": "$$"
+    }
+    </script>
+
+    <style>
+        /* Diesel Dudes Color System */
+        :root {
+            --primary-orange: #E55722;
+            --secondary-blue: #2D5AA0;
+            --teal-accent: #4ECDC4;
+            --white: #FFFFFF;
+            --dark-gray: #2C2C2C;
+            --light-gray: #F8F8F8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.5;
+        }
+
+        /* Typography System */
+        .text-hero {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .text-h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        .text-h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .text-h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .text-body {
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .text-button {
+            font-size: 0.875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary-orange);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-orange);
+        }
+
+        .cta-phone {
+            background: var(--primary-orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-phone:hover {
+            background: #d14a1c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(229, 87, 34, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 44, 44, 0.7), rgba(44, 44, 44, 0.7)), 
+                        url('/images/plumber-truck-hero.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .hero-title {
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-orange);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: #d14a1c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(229, 87, 34, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark-gray);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Emergency Services Section */
+        .emergency-services {
+            background: var(--light-gray);
+            padding: 5rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .section-subtitle {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .emergency-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .emergency-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .emergency-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .card-description {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .card-link {
+            color: var(--primary-orange);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+
+        .card-link:hover {
+            color: var(--secondary-blue);
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            background: var(--secondary-blue);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--teal-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Service Areas */
+        .service-areas {
+            padding: 5rem 0;
+            background: var(--light-gray);
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .area-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--dark-gray);
+            transition: all 0.3s ease;
+        }
+
+        .area-item:hover {
+            background: var(--primary-orange);
+            color: white;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--primary-orange);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .phone-large {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 1rem 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-orange);
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .text-hero {
+                font-size: 2.5rem;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .emergency-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .phone-large {
+                font-size: 2rem;
+            }
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-gray);
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">Ramon's Plumbing</a>
+            
+            <ul class="nav-menu">
+                <li><a href="/services" class="nav-link">Services</a></li>
+                <li><a href="/service-areas" class="nav-link">Service Areas</a></li>
+                <li><a href="/about" class="nav-link">About</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <a href="tel:9516045803" class="cta-phone">
+                📞 Call Now
+            </a>
+
+            <button class="mobile-menu-toggle">☰</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="text-hero hero-title">Emergency Plumbing & On-Site Repairs</h1>
+            <p class="hero-subtitle">Serving All Plumbing Needs | Call Now for Fast, Reliable Service in Temecula, Palm Springs & Riverside County.</p>
+            
+            <div class="hero-ctas">
+                <a href="tel:9516045803" class="btn-primary">
+                    📞 Emergency Call (951) 604-5803
+                </a>
+                <a href="/services" class="btn-secondary">
+                    View All Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Services -->
+    <section class="emergency-services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="text-h1 section-title">24/7 Emergency Plumbing Services</h2>
+                <p class="text-body section-subtitle">Fast response for plumbing emergencies, no matter where you are in Riverside County.</p>
+            </div>
+
+            <div class="emergency-grid">
+                <div class="emergency-card">
+                    <div class="emergency-icon">🚨</div>
+                    <h3 class="text-h3 card-title">Emergency Response</h3>
+                    <p class="card-description">We bring the repair shop to you, saving you time and getting your plumbing back to normal.</p>
+                    <a href="/services/emergency-plumbing" class="card-link">Learn More →</a>
+                </div>
+
+                <div class="emergency-card">
+                    <div class="emergency-icon">🔍</div>
+                    <h3 class="text-h3 card-title">Leak Detection</h3>
+                    <p class="card-description">Advanced leak detection technology to find hidden leaks before they cause major damage.</p>
+                    <a href="/services/leak-detection" class="card-link">Learn More →</a>
+                </div>
+
+                <div class="emergency-card">
+                    <div class="emergency-icon">🔧</div>
+                    <h3 class="text-h3 card-title">Water Heater Service</h3>
+                    <p class="card-description">Complete water heater repairs, replacements, and maintenance for all makes and models.</p>
+                    <a href="/services/water-heater-replacement" class="card-link">Learn More →</a>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="tel:9516045803" class="btn-primary">Call us 24/7 for immediate assistance</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full Services Grid -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="text-h1 section-title">Complete Plumbing Services</h2>
+                <p class="text-body section-subtitle">Expert repairs by licensed plumbers for all your residential and commercial needs.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔧</div>
+                    <h3 class="text-h3">Service & Repair</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚿</div>
+                    <h3 class="text-h3">Shower Valves</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚰</div>
+                    <h3 class="text-h3">Kitchen Faucets</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚽</div>
+                    <h3 class="text-h3">Toilet Replacement</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3 class="text-h3">New Construction</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🗑️</div>
+                    <h3 class="text-h3">Garbage Disposal</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📹</div>
+                    <h3 class="text-h3">Sewer Camera</h3>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3 class="text-h3">Re-Piping</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="text-h1 section-title">Why Choose Ramon's Plumbing</h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="text-h3">Fast Response</h3>
+                    <p>We work fast to get your plumbing back to normal.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">✅</div>
+                    <h3 class="text-h3">Licensed & Insured</h3>
+                    <p>Thorough inspections and meticulous work by licensed professionals.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💲</div>
+                    <h3 class="text-h3">Transparent Pricing</h3>
+                    <p>No hidden fees, just upfront pricing and clear communication.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📞</div>
+                    <h3 class="text-h3">Always Available</h3>
+                    <p>We're always available and keep you updated every step of the way.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="text-h3">Satisfaction Guaranteed</h3>
+                    <p>We stand behind our work with a comprehensive warranty and your complete satisfaction is our priority.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <h3 class="text-h3">Local Experts</h3>
+                    <p>Deep knowledge of Riverside County plumbing needs and local codes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Areas -->
+    <section class="service-areas">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="text-h1 section-title">24/7 Plumbing Services Throughout Riverside County</h2>
+                <p class="text-body section-subtitle">Plus surrounding areas within 50 miles of Temecula & Palm Springs</p>
+            </div>
+
+            <div class="areas-grid">
+                <div class="area-item">Temecula</div>
+                <div class="area-item">Wine Country Temecula</div>
+                <div class="area-item">Murrieta</div>
+                <div class="area-item">Menifee</div>
+                <div class="area-item">Palm Springs</div>
+                <div class="area-item">Desert Hot Springs</div>
+                <div class="area-item">Sun City</div>
+                <div class="area-item">French Valley</div>
+                <div class="area-item">Winchester</div>
+                <div class="area-item">Canyon Lake</div>
+                <div class="area-item">Lake Elsinore</div>
+                <div class="area-item">Moreno Valley</div>
+                <div class="area-item">San Jacinto</div>
+                <div class="area-item">Hemet</div>
+                <div class="area-item">Beaumont</div>
+                <div class="area-item">Banning</div>
+                <div class="area-item">Cherry Valley</div>
+                <div class="area-item">Valle Vista</div>
+                <div class="area-item">Poway</div>
+                <div class="area-item">Ramona</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="text-h1">Contact Ramon's Plumbing Today!</h2>
+                <div class="phone-large">(951) 604-5803</div>
+                <p class="text-body">24/7 Emergency Service • Temecula, Palm Springs & Riverside County • Licensed & Insured</p>
+                <div style="margin-top: 2rem;">
+                    <a href="tel:9516045803" class="btn-secondary">Call Now for Service</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <a href="/services/emergency-plumbing">Emergency Plumbing</a>
+                    <a href="/services/leak-detection">Leak Detection</a>
+                    <a href="/services/water-heater-replacement">Water Heater Service</a>
+                    <a href="/services/sewer-camera">Sewer Camera</a>
+                    <a href="/services/repiping">Re-Piping</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Service Areas</h3>
+                    <a href="/service-areas/temecula">Temecula</a>
+                    <a href="/service-areas/palm-springs">Palm Springs</a>
+                    <a href="/service-areas/murrieta">Murrieta</a>
+                    <a href="/service-areas/menifee">Menifee</a>
+                    <a href="/service-areas">View All Areas</a>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>Phone: <a href="tel:9516045803">(951) 604-5803</a></p>
+                    <p>24/7 Emergency Service</p>
+                    <p>Licensed & Insured</p>
+                    <p>Serving Riverside County</p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="/about">About Us</a>
+                    <a href="/reviews">Reviews</a>
+                    <a href="/contact">Contact</a>
+                    <a href="/blog">Plumbing Tips</a>
+                    <a href="/privacy">Privacy Policy</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ramon's Plumbing. All rights reserved. Licensed Plumbing Contractor.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (mobileToggle && navMenu) {
+                mobileToggle.addEventListener('click', function() {
+                    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                });
+            }
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add scroll effect to header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header');
+                if (window.scrollY > 100) {
+                    header.style.background = 'rgba(255, 255, 255, 0.98)';
+                } else {
+                    header.style.background = 'rgba(255, 255, 255, 0.95)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
